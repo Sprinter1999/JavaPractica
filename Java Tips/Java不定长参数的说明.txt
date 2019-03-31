@@ -1,0 +1,47 @@
+在调用某个方法时，若是方法的参数个数事先无法确定该如何处理？例如System.out.printf()方法中并没有办法事先决定要给的参数个数，像是：
+System.out.printf("%d",10);
+System.out.printf("%d %d", 10, 20);
+System.out.printf("%d %d %d", 10, 20, 30);
+
+在J2SE 5.0之后开始支持不定长度参数(Variable-length Argument)，这可以让您轻松的解决这个问题，直接来看下面的范例：
+public class MathTool {
+         public static int sum(int ... nums ) { //使用…声明参数
+                   int sum = 0;
+                   for(int num : nums) {
+                            sum += num;
+                   }
+                   return sum;
+         }
+}
+
+要使用不定长度参数，在声明参数行时要在类型关键词后加上…，而在sum()方法的区块中可以看到，实际上nums是一个数组，编译器会将参数行的(int … nums)解释为(int[] nums)，可以以下范例的方式制定各种长度的参数给方法来使用。
+
+public class TestVarargs {
+         public static void main(String[] args) {
+                   int sum = 0;
+ 
+                   sum = MathTool.sum(1, 2);
+                   System.out.println("1 + 2 = " + sum);
+ 
+                   sum = MathTool.sum(1, 2, 3);
+                   System.out.println("1 + 2 +3 = " + sum);
+ 
+                   sum = MathTool.sum(1, 2, 3, 4, 5);
+                   System.out.println("1 + 2 + 3 + 4 + 5 = " + sum);
+         }
+}
+
+编译器会将传递给方法的参数解释为int数组传入至sum()中，所以实际上不定长度参数的功能也是自J2SE 5.0后所提供的编译蜜糖(Compiler Sugar)。
+
+在方法上使用不定长度参数时，记得必须声明的参数必须设置在参数行的最后一个。例如下面的方式是合法的：
+ 
+public void someMethod(int arg1, int arg2, int ... varargs) {
+          // ...
+}
+
+ 但下面的方式是不合法的：
+public void someMethod(int ... varargs , int arg1, int arg2) {
+          // ...
+}
+也无法使用两个以上的不定长度参数；如果使用对象的不定长度参数，声明的方法相同。
+
