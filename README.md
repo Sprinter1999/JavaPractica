@@ -1,5 +1,7 @@
 # BuptJavaPractica
-A repo for this semester's Java Programming Design                
+A repo for this semester's Java Programming Design          
+
+"Java Little Prjs" stores some little projects about Java practica(i.e. A prj which simulates BinoDistribution).      
 
 "Java Tips" stores some tips about Java programming ideas.        
 
