@@ -1,5 +1,7 @@
 # BuptJavaPractica
-A repo for this semester's Java Programming Design          
+A repo for this semester's Java Programming Design    
+
+"Java 20 exercise practica" is a repo for skr吴's holiday homework,I reckon these are of great significance.      
 
 "Java Little Prjs" stores some little projects about Java practica(i.e. A prj which simulates BinoDistribution).      
 
