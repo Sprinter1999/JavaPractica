@@ -1,0 +1,15 @@
+package test;
+//Java的类变量在整个类只有唯一一个值
+public class test {
+public static void main(String[] args) {
+	yuan A=new yuan();
+	yuan B=new yuan();
+	A.PI=3.9;
+	System.out.print(B.PI);
+}
+}
+class yuan
+{
+	static double PI=3.1415;
+}
+////////////////////////////////////////////////////////OUTPUT： 3.9
