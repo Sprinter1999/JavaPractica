@@ -3,6 +3,8 @@ A repo for this semester's Java Programming Design
 
 "Java 20 exercise practica" is a repo for skr吴's holiday homework,I reckon these are of great significance.      
 
+"Java Curriculum design practica" is a repo for Lijie's BIG-HOMEWORK projects.   
+
 "Java Little Prjs" stores some little projects about Java practica(i.e. A prj which simulates BinoDistribution).    
 
 "Java mess" is a repo for some algorithm and little enlightening codes which need saving.       
