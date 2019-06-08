@@ -1,0 +1,54 @@
+package sixteenth;
+/*编写一个多线程程序实现如下功能：
+	线程A和线程B分别在屏幕上显示信息“…start”后，
+	调用wait等待；线程C开始后调用sleep休眠一段时间，
+	然后调用 notifyall，使线程A和线程B继续运行。
+	线程A和线程B恢复运行后输出信息“…end”后结束，
+	线程C在判断线程B和线程A结束后自己结束运行。*/
+public class Multithreading {
+	public synchronized void Wait(){
+		try {
+			wait(4000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	public synchronized void NotifyAll(){
+		notifyAll();
+	}
+	Thread A = new Thread ("A"){
+		public void run(){
+			System.out.println("线程A  :  …start");
+			Wait();
+			System.out.println("线程A  :  …end");
+		}
+	};
+	Thread B = new Thread ("B"){
+		public void run(){
+			System.out.println("线程B  :  …start");
+			Wait();
+			System.out.println("线程B  :  …end");
+		}
+	};
+	Thread C = new Thread ("C"){
+		public void run(){
+			while (true) {
+				if (!A.isAlive() && !B.isAlive()) {
+					System.out.println("end 线程C");
+					return;
+				}
+				try {
+					Thread.sleep(5000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	};
+	public static void main(String[] args) {
+		Multithreading T = new Multithreading();
+		T.A.start();
+		T.B.start();
+		T.C.start();
+	}
+}
