@@ -1,0 +1,47 @@
+package nineteenth;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+/*练习使用JComboBox。
+ 	包括一个JLable、一个JComboBox，
+ 	可以通过输入或者选择JComboBox中
+ 	的某一项来控制JLable中文字的大小。*/
+
+public class Test extends JFrame implements ItemListener {
+	public JFrame jFrame;
+	private JLabel jLabel;
+	private JComboBox jComboBox;
+	private String[] fontSize = {"8", "12", "16", "20", "24", "28"};
+	public void init() {
+	jFrame = new JFrame("ComboBox");
+	Container container = jFrame.getContentPane();
+	container.setLayout(new GridLayout(2, 1));
+	jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	jLabel = new JLabel("I'm SixGod");
+	jLabel.setFont(new Font("", 0, 24));// 设置字体大小
+	jComboBox = new JComboBox(fontSize);
+	jComboBox.setEditable(true);// 设置输入复选框
+	jComboBox.addItemListener(this);// ItemListener监听
+	// 添加两个组件
+	container.add(jLabel);
+	container.add(jComboBox);
+	jFrame.pack();// 排版
+	jFrame.setVisible(true);// 显示
+	}
+	@Override
+	public void itemStateChanged(ItemEvent e) {
+		if (e.getStateChange()== ItemEvent.SELECTED) {
+			try {
+			String s = jComboBox.getSelectedItem().toString();
+			int intFontSize = Integer.parseInt(s);
+			jLabel.setFont(new Font("", 0, intFontSize));
+			} catch (NumberFormatException r) {
+				JOptionPane.showMessageDialog(this, "请输入整数");
+			}
+		}
+
+	}
+	public static void main(String[] args) {
+		new Test().init();
+	}
+}
