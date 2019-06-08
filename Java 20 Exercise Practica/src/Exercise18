@@ -1,0 +1,77 @@
+package eighteenth;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+/*练习使用JscrollPane。
+ 	使用BorderLayout将JFrame布局分为左右两块；
+ 	左边又使用GridLayout，包含三个按钮，
+ 	右边在JLabel里显示一幅图画，
+ 	按钮控制JLabel是否显示滚动条。*/
+public class Test extends JFrame implements ActionListener {
+	private JPanel jPanel;
+	private Button button1;
+	private Button button2;
+	private Button button3;
+	private JScrollPane jscrollPane;//滚动
+	private JLabel label;//滚动标签
+	public ImageIcon picture = null;//标签图标
+	public boolean whetherCroll = true;//切换滚动条显示
+	
+	public void init() {
+	      JFrame jFrame = new JFrame ("JscrollPane");
+	      Container pane = jFrame.getContentPane();
+	      this.setDefaultCloseOperation((JFrame.EXIT_ON_CLOSE));
+	      
+	      //定义左边镶板JPane1框和三个按钮
+	      jPanel = new JPanel(new GridLayout(3, 1, 0, 10));
+	      button1 = new Button("BT");
+	      button1.addActionListener(this);
+	      button2 = new Button("Try");
+	      button2.addActionListener(this);
+	      button3 = new Button("Exit");
+	      button3.addActionListener(this);
+	      jPanel.add(button1);
+	      jPanel.add(button2);
+	      jPanel.add(button3);
+
+	      //读取图片作为图标
+	      picture = new ImageIcon("C:/Users/DELL/Pictures/22.jpg");
+	      //将图标赋给标签label
+	      label = new JLabel(picture);
+	      //定义滚动框并显示滚动条
+	      jscrollPane = new JScrollPane(label, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, 
+	    		  							   ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+
+	      //将左右两边的中间容器放弃JFrame中
+	      pane.add(jPanel, BorderLayout.WEST);
+	      pane. add(jscrollPane, BorderLayout.EAST);
+	      //排版湿示
+	      jFrame.pack() ;
+	      jFrame.setVisible(true);
+	}
+	public void actionPerformed(ActionEvent e){
+		if (e.getActionCommand() == "BT") {
+			if (whetherCroll) {
+				jscrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);//垂直不显示
+				jscrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);//水平不显示
+				whetherCroll = false;
+			} else {
+				jscrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);//垂直显示
+				jscrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);//水平显示
+				whetherCroll = true;
+			}
+		}
+		if (e.getActionCommand() == "Try") {
+			JOptionPane.showMessageDialog(this, "Let's go!");
+		}
+		if (e.getActionCommand() == "Exit") {
+			System.exit(0);
+		}
+	}
+	
+	public static void main(String[] args) {
+		new Test().init();
+	}
+	      
+
+}
