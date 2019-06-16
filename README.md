@@ -13,7 +13,7 @@ A repo for this semester's Java Programming Design
 
 "Java oj test context" stores Mr.LiJie's Oj tests and"Java oj solutions" stores its solutions.     
 
-"Java oj for Skr吴"and"Java oj solutions for Skr吴" stores Mr.WuQifan's oj and oj solutions.       
+"Java oj for Skr吴"and"Java oj solutions for Skr吴" stores Mr.WuQifan's oj and oj solutions.  （Some are contributed by 六神SixGod）       
 
 
 Skr,skr~
