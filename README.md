@@ -1,9 +1,9 @@
 # BuptJavaPractica
-A repo for this semester's Java Programming Design（建议学弟学妹选择C++实践课嗷!）       
+A repo for this semester's Java Programming Design.          
 
 "Java 20 exercise practica" is a repo for skr吴's holiday homework,I reckon these are of great significance.   （Java20题）     
 
-"Java Curriculum design practica" is a repo for Lijie's BIG-HOMEWORK projects.   (带作业？)    
+"Java Curriculum design practica" is a repo for Lijie's BIG-HOMEWORK projects.   (作业)    
 
 "Java Little Prjs" stores some little projects about Java practica(i.e. A prj which simulates BinoDistribution).    （Vain...）  
 
