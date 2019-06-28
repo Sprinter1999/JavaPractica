@@ -4,7 +4,7 @@ import java.util.HashSet;
 
 public class _17213508_JiangXuefeng_7_CompositeBestForCustomer extends _17213508_JiangXuefeng_7_CompositeStrategy
 {
-    static final int MAX_TOTAL = 2015211301;
+    static final int MAX_TOTAL = 2017211319;
 
     /* The constructor method */
     public _17213508_JiangXuefeng_7_CompositeBestForCustomer(String[] list, HashSet<Integer> book, String ID, String name)
